@@ -1,0 +1,15 @@
+FROM node:latest
+
+RUN apt-get update -y && apt-get install git vim -y
+
+#RUN npm install -g bower gulp
+
+RUN mkdir -p /app
+
+WORKDIR /app
+
+ADD package.json /tmp/package.json
+
+RUN cd /tmp && npm install
+
+CMD [ "node" ]
